@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GG. - Proyecto Red Social simple</title>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <div id="addPost">
+                <form id="formPost">
+                    <div id="loadingAdd" class="loading">
+                        <div class="loader-container">
+                            <div class="loader-wrapper">
+                                <div class="loader">
+                                    <div class="loader-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-element">
+                        <h1 class="post-title"><i class='bx bxs-message-square-edit'></i> ¿Qué estas pensando?</h1>
+                    </div>
+                    <div class="form-element">
+                        <textarea name="postDescription" id="postDescription" rows="5"></textarea>
+                        <div class="error" id="postDescriptionError"></div>
+                    </div>
+                    <div class="form-element">
+                        <p class="post-current-date"><i class='bx bxs-calendar'></i> <span id="currentDate"></span></p>
+                        <input type="submit" id="postAdd" value="Publicar">
+                    </div>
+                </form>
+            </div>
+            <div id="listPost">
+                <div class="list-post-title">
+                    <i class='bx bxs-message-square-detail' ></i> Últimas publicaciones
+                </div>
+                <div id="lastPost">
+                    <div id="loadingPosts" class="loading">
+                        <div class="loader-container">
+                            <div class="loader-wrapper">
+                                <div class="loader">
+                                    <div class="loader-dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="responseList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

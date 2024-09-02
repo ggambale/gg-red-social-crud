@@ -1,0 +1,328 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+html {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(240, 240, 240);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    margin: 40px 20px;
+    width: 100%;
+    max-width: 640px;
+}
+
+#formPost {
+    background-color: white;
+    border: 1px solid #d8d8d8;
+    padding: 20px 20px 14px 20px;
+    margin-bottom: 20px;
+    border-radius: 14px;
+    box-shadow: 2px 2px 10px 0px rgb(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.form-element {
+    width: 100%;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-element:nth-last-child(1) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 8px;
+    margin-bottom: 0;
+}
+
+input, textarea {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid #e2e2e2;
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+input:focus, textarea:focus {
+    outline: 2px solid #eee;
+}
+
+textarea {
+    padding: 10px;    
+    border-left: none;
+    border-right: none;
+    resize: none;
+}
+
+input[type="submit"] {
+    padding: 8px 14px;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 4px;
+    border: none;
+    letter-spacing: 1px;
+    width: auto;
+    color: white;
+    background-color: dodgerblue;
+    box-shadow: 1px 1px 4px 0px rgb(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color .4s ease, box-shadow .4s ease;
+}
+
+input[type="submit"]:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+input[type="submit"]:hover {
+    background-color: royalblue;
+    box-shadow: none;
+    transition: background-color .4s ease, box-shadow .4s ease;
+}
+
+.post-current-date {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: rgb(143, 143, 143);
+    line-height: 1;
+    margin: 0;
+}
+
+.post-current-date i {
+    font-size: 16px;
+    margin-right: 5px;
+    color: dodgerblue;
+    position: relative;
+    top: -2px;
+}
+
+.post-title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.post-title i {
+    margin-right: 5px;
+    color: dodgerblue;
+    font-size: 24px;
+}
+
+.list-post-title {
+    display: flex;
+    align-items: center;
+    padding: 20px 0 15px 20px;
+    margin: 0 0 15px 0;
+    border-bottom: 1px solid #e2e2e2;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.list-post-title i {
+    margin-right: 5px;
+    color: dodgerblue;
+    font-size: 24px;
+}
+
+.post-item {
+    background-color: white;
+    padding: 20px 20px;
+    margin-bottom: 15px;
+    border-radius: 14px;
+    transform: translateY(0);
+}
+
+.post-item-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 0 10px 0;
+}
+
+.post-item-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 8px;
+}
+
+.post-item-actions-btn {
+    font-size: 18px;
+    color: gray;
+    transition: color .4s ease;
+}
+
+.post-edit {
+    color: royalblue;
+}
+
+.post-delete {
+    color: crimson;
+}
+
+.post-update {
+    color: seagreen;
+}
+
+.post-cancel {
+    color: midnightblue;
+}
+
+
+.post-item-actions-btn:hover {
+    color: dodgerblue;
+    transition: color .4s ease;
+}
+
+.post-item-text {
+    color: rgb(92, 92, 92);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: 0.6px;
+    padding: 15px 15px 0 15px;
+    border-top: 1px solid #e2e2e2;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.post-item-text[contenteditable='true'] {
+    outline: 2px solid #eee;
+    padding: 15px;
+}
+
+.post-item-text[contenteditable='true']:focus {
+    outline: 2px solid #eee;
+    padding: 15px;
+}
+
+.error {
+    display: none;
+    font-size: 14px;
+    color: crimson;
+    padding: 0 8px;
+    margin-top: 8px;
+}
+
+/* Loader CSS */
+.loading {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.loader-container{
+    position: relative;
+    width: 100%;
+    padding: 30px 0;
+    display: flex;
+    justify-content: center;
+}
+.loader-wrapper{
+    padding: 30px 0;
+}
+.loader{
+    height: 25px;
+    width: 1px;
+    position: absolute;
+    animation: rotate 3.5s linear infinite;
+}
+.loader .loader-dot{
+    top: 30px;
+    height: 7px;
+    width: 7px;
+    background: #3ea5ff;
+    border-radius: 50%;
+    position: relative;
+}
+.loader-text{
+    position: absolute;
+    bottom: -35px;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: "Roboto", sans-serif;
+}
+@keyframes rotate {
+    30%{
+        transform: rotate(220deg);
+    }
+    40%{
+    transform: rotate(450deg);
+        opacity: 1;
+    }
+    75%{
+    transform: rotate(720deg);
+    opacity: 1;
+    }
+    76%{
+    opacity: 0;
+    }
+    100%{
+    opacity: 0;
+    transform: rotate(0deg);
+    }
+}
+.loader:nth-child(1){
+    animation-delay: 0.15s;
+}
+.loader:nth-child(2){
+    animation-delay: 0.3s;
+}
+.loader:nth-child(3){
+    animation-delay: 0.45s;
+}
+.loader:nth-child(4){
+    animation-delay: 0.6s;
+}
+.loader:nth-child(5){
+    animation-delay: 0.75s;
+}
+.loader:nth-child(6){
+    animation-delay: 0.9s;
+}
