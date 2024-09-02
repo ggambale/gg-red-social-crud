@@ -53,7 +53,7 @@ const addPost = async () => {
             method: 'POST',
             body: JSON.stringify({
                 title: 'foo',
-                body: body.value,
+                body: body.value.trim(),
                 userId: 1,
             }),
             headers: {
@@ -144,24 +144,29 @@ const editPost = async (id) => {
         const response = await fetch(`${urlBase}/posts/${id}`, {
             method: 'PUT',
             body: JSON.stringify({
-              id: id,
-              title: 'foo',
-              body: body.textContent,
-              userId: 1,
+                id: id,
+                title: 'foo',
+                body: body.textContent.trim(),
+                userId: 1,
             }),
             headers: {
-              'Content-type': 'application/json; charset=UTF-8',
+                'Content-type': 'application/json; charset=UTF-8',
             },
-          })
+        })
 
-          if(!response.ok){
-            throw Error(`Error al intentar actualizar el Post: ${id}`)
-          }
+        if(!response.ok){
+            throw Error(`al intentar actualizar el Post ${id}`)
+        }
 
-          resetEditable()
+        const result = await response.json()
+
+        body.textContent = result.body
+
+        resetEditable()
 
     } catch (error) {
-        console.error(error)
+        const inputError = document.getElementById(`postDescriptionError${id}`)
+        showInputError(inputError, error)
     }
 }
 
@@ -262,6 +267,7 @@ const renderPost = (post) => {
         e.preventDefault()
         const actions = this.parentNode.childNodes
         const textarea = this.parentNode.parentNode.nextSibling
+        const inputError = document.getElementById(`postDescriptionError${post.id}`)
         actions.forEach(action => {
             if(action.style.display == 'none'){
                 action.style.display = 'inline-block'
@@ -269,6 +275,7 @@ const renderPost = (post) => {
                 action.style.display = 'none'
             }
         })
+        hideInputError(inputError)
         textarea.removeAttribute('contenteditable')
     })
     itemActions.appendChild(btnCancel)
